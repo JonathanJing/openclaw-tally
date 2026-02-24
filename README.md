@@ -1,17 +1,19 @@
-# 📊 OpenClaw Task Metrics
+# OpenClaw Tally
+
+> Tokens tell you how much you paid. Tasks tell you what you got.
 
 **Task-level efficiency analytics for OpenClaw.** Stop counting tokens — start measuring what actually got done and what it cost.
 
-Task Metrics automatically detects tasks from your message stream, attributes costs across sessions/sub-agents/cron, and computes a **TES (Task Efficiency Score)** so you can answer: "What did my AI spend money on this week, and was it worth it?"
+Tally automatically detects tasks from your message stream, attributes costs across sessions/sub-agents/cron, and computes a **TES (Task Efficiency Score)** so you can answer: "What did my AI spend money on this week, and was it worth it?"
 
 ## Installation
 
 ```bash
 # Via ClawHub
-clawhub install task-metrics
+clawhub install openclaw-tally
 
 # Or manually
-git clone <repo-url> && cd task-metrics
+git clone https://github.com/JonathanJing/openclaw-tally.git && cd openclaw-tally
 npm install
 npm run migrate
 ```
@@ -30,6 +32,13 @@ npm run migrate
 #    Use /tasks commands to view analytics.
 ```
 
+## Security & Privacy
+
+- **Local only**: All data stays on your machine. No external network calls.
+- **No message content stored**: Only metadata (token count, model, session_id).
+- **Sandboxed writes**: Database is hardcoded to `~/.openclaw/tally/tally.db`.
+- **Hook scope**: Registered on `message-post` — processes every message's metadata only.
+
 ## Core Concepts
 
 ### Task
@@ -46,33 +55,19 @@ Higher is better. A TES > 2.0 means excellent value; < 0.5 means you're overpayi
 
 ### Complexity Levels
 
-| Level | Name | What It Looks Like |
-|-------|------|--------------------|
-| **L1** | Reflex | Single-turn Q&A, no tools |
-| **L2** | Routine | Multi-turn or 1–3 tool calls |
-| **L3** | Mission | Multiple tools + file I/O + external APIs |
-| **L4** | Campaign | Sub-agents + cron + cross-session continuity |
+- **L1 (Reflex)**: Single-turn Q&A, no tools
+- **L2 (Routine)**: Multi-turn or 1–3 tool calls
+- **L3 (Mission)**: Multiple tools + file I/O + external APIs
+- **L4 (Campaign)**: Sub-agents + cron + cross-session continuity
 
 ## CLI Commands
 
-| Command | Description |
-|---------|-------------|
-| `/tasks list [--level L3] [--status completed]` | List recent tasks |
-| `/tasks stats [--period 30d]` | Summary statistics |
-| `/tasks this-week` | This week's task summary |
-| `/tasks show <task_id>` | Task detail view |
-| `/tasks report --dimension model` | Model efficiency breakdown |
-| `/tasks cron-health` | Cron job health check |
-
-## Configuration
-
-| Option | Default | Description |
-|--------|---------|-------------|
-| `db_path` | `~/.openclaw/task-metrics.db` | SQLite database path |
-| `timeout.L1` | `2min` | Silent completion timeout for L1 |
-| `timeout.L2` | `5min` | Silent completion timeout for L2 |
-| `timeout.L3` | `15min` | Silent completion timeout for L3 |
-| `timeout.L4` | `60min` | Silent completion timeout for L4 |
+- `/tasks list [--level L3] [--status completed]` — List recent tasks
+- `/tasks stats [--period 30d]` — Summary statistics
+- `/tasks this-week` — This week's task summary
+- `/tasks show <task_id>` — Task detail view
+- `/tasks report --dimension model` — Model efficiency breakdown
+- `/tasks cron-health` — Cron job health check
 
 ## Architecture
 
@@ -85,3 +80,7 @@ Three-layer design:
 ## Full Specification
 
 See [PRD.md](./PRD.md) for the complete product requirements document.
+
+## License
+
+MIT © Jony Jing

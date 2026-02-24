@@ -1,12 +1,23 @@
 {
-  "name": "task-metrics",
+  "name": "openclaw-tally",
+  "displayName": "OpenClaw Tally",
   "version": "0.1.0",
-  "description": "Task-level efficiency analytics for OpenClaw. Tracks task completion, cost attribution, and TES (Task Efficiency Score) across models, sessions, and cron jobs.",
+  "description": "Tokens tell you how much you paid. Tasks tell you what you got. Tally tracks every OpenClaw task from start to finish — cost, complexity, and efficiency score.",
   "author": "jonyjing",
-  "tags": ["analytics", "metrics", "productivity", "cost"],
+  "slug": "openclaw-tally",
+  "tags": ["analytics", "metrics", "cost", "productivity", "tally"],
   "openclaw": {
     "minVersion": "2026.2.0",
     "hooks": ["message-post"],
     "commands": ["/tasks"]
+  },
+  "permissions": {
+    "filesystem": {
+      "write": ["~/.openclaw/tally/"],
+      "read": ["~/.openclaw/tally/"]
+    },
+    "network": "none",
+    "hooks": ["message-post"],
+    "exec": false
   }
 }
