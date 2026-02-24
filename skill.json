@@ -1,0 +1,12 @@
+{
+  "name": "task-metrics",
+  "version": "0.1.0",
+  "description": "Task-level efficiency analytics for OpenClaw. Tracks task completion, cost attribution, and TES (Task Efficiency Score) across models, sessions, and cron jobs.",
+  "author": "jonyjing",
+  "tags": ["analytics", "metrics", "productivity", "cost"],
+  "openclaw": {
+    "minVersion": "2026.2.0",
+    "hooks": ["message-post"],
+    "commands": ["/tasks"]
+  }
+}
