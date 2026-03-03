@@ -2,7 +2,7 @@
 name: openclaw-tally
 description: "Tokens tell you how much you paid. Tasks tell you what you got. Tally tracks every OpenClaw task from start to finish — cost, complexity, and efficiency score."
 metadata:
-  {"openclaw": {"emoji": "📊", "requires": {"anyBins": []}}}
+  {"openclaw": {"emoji": "📊", "runtime": "node", "requires": {"anyBins": ["node", "npm"]}}}
 ---
 
 # OpenClaw Tally
