@@ -4,18 +4,15 @@
 
 **Task-level efficiency analytics for OpenClaw.** Stop counting tokens — start measuring what actually got done and what it cost.
 
-Tally automatically detects tasks from your message stream, attributes costs across sessions/sub-agents/cron, and computes a **TES (Task Efficiency Score)** so you can answer: "What did my AI spend money on this week, and was it worth it?"
+## 🛠️ Installation
 
-## Installation
+### 1. Ask OpenClaw (Recommended)
+Tell OpenClaw: *"Install the openclaw-tally skill."* The agent will handle the installation and configuration automatically.
 
+### 2. Manual Installation (CLI)
+If you prefer the terminal, run:
 ```bash
-# Via ClawHub
 clawhub install openclaw-tally
-
-# Or manually
-git clone https://github.com/JonathanJing/openclaw-tally.git && cd openclaw-tally
-npm install
-npm run migrate
 ```
 
 ## Quick Start

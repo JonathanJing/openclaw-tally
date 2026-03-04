@@ -1,6 +1,7 @@
 ---
 name: openclaw-tally
 description: "Tokens tell you how much you paid. Tasks tell you what you got. Tally tracks every OpenClaw task from start to finish — cost, complexity, and efficiency score."
+version: "0.3.1"
 metadata:
   {"openclaw": {"emoji": "📊", "runtime": "node", "requires": {"anyBins": ["node", "npm"]}}}
 ---
@@ -8,6 +9,17 @@ metadata:
 # OpenClaw Tally
 
 Reframes AI usage from token-counting to task-completion economics. Instead of "how many tokens?", answer "how much to get X done, and was it worth it?"
+
+## 🛠️ Installation
+
+### 1. Ask OpenClaw (Recommended)
+Tell OpenClaw: *"Install the openclaw-tally skill."* The agent will handle the installation and configuration automatically.
+
+### 2. Manual Installation (CLI)
+If you prefer the terminal, run:
+```bash
+clawhub install openclaw-tally
+```
 
 ## Security & Privacy Declaration
 
