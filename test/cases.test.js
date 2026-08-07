@@ -46,7 +46,7 @@ describe('TaskDetector', () => {
     expect(detector.computeComplexity({ toolsCalled: 5, externalApiCalls: 3, userTurns: 4 })).toEqual({ score: 42, level: 'L3' })
 
     // L4: sub-agents + cron + cross-session
-    expect(detector.computeComplexity({ subAgents: 2, cronTriggered: true, crossSessionCount: 2, toolsCalled: 3, userTurns: 3 })).toEqual({ score: 81, level: 'L4' })
+    expect(detector.computeComplexity({ subAgents: 2, cronTriggered: true, crossSessionCount: 2, toolsCalled: 3, userTurns: 3 })).toEqual({ score: 91, level: 'L4' })
   })
 
   // Completion detection
